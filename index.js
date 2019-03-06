@@ -1,12 +1,13 @@
 const darknet = require('@moovel/yolo');
+const fs = require('fs')
 
 darknet.detectImage({
   cfg: './cfg/yolo.cfg',
-  weights: './yolov3.weights',
+  weights: './yolo.weights',
   data: 'cfg/coco.data',
-  image: './img_01.jpg',
-  //thresh: 0.24, // optional, default: 0.24
-  //hierThresh: 0.5, // optional, default: 0.5,
+  image:'img_01.jpg',
+  thresh: 0.24, // optional, default: 0.24
+  hierThresh: 0.5, // optional, default: 0.5,
 }, function(modified, original, detections, dimensions) {
   /**
 
@@ -44,5 +45,7 @@ darknet.detectImage({
   */
   console.log({ modified })
   console.log({ original })
-  console.log({ detectImage })
+  console.log({ detections })
+  console.log({ dimensions })
+  fs.writeFileSync("data.raw",modified)
 });
