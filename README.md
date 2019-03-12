@@ -10,7 +10,7 @@ For High Power of Sakura Internet Cloud.
 $ curl -s https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install | bash -
 
 ##if you have using wget 
-$ wget https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install -o- | bash -
+$ wget https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install -nv -O- | bash -
 ```
 
 
