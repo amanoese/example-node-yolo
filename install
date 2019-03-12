@@ -2,9 +2,9 @@
 
 set -eux
 
-sudo apt-get update
-
 ## install vim
+
+sudo apt-get update
 sudo apt-get install vim tmux -y
 
 ## install docker from //docs.docker.com/install/linux/docker-ce/ubuntu/ 
@@ -26,6 +26,14 @@ sudo add-apt-repository \
 
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+
+## install nvidia driver
+## For https://www.nvidia.com/download/driverResults.aspx/118955/en-us
+
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+sudo apt-get update
+sudo apt-get -y --no-install-recommends install cuda-drivers
 
 ## install nvidia-docker form https://github.com/NVIDIA/nvidia-docker
 
