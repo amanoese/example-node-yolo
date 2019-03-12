@@ -1,9 +1,11 @@
-#!/usr/local/env bin
+#!/usr/local/env bash
+
+set -eux
 
 sudo apt-get update
 
 ## install vim
-sudo apt-get install vim -y
+sudo apt-get install vim tmux -y
 
 ## install docker from //docs.docker.com/install/linux/docker-ce/ubuntu/ 
 sudo apt-get install \
@@ -23,7 +25,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 ## install nvidia-docker form https://github.com/NVIDIA/nvidia-docker
 
@@ -33,10 +35,11 @@ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
 sudo apt-get update
 
 # Install nvidia-docker2 and reload the Docker daemon configuration
-sudo apt-get install -y nvidia-docker2
+sudo apt-get install nvidia-docker2 -y
 sudo pkill -SIGHUP dockerd
 
 # Test nvidia-smi with the latest official CUDA image
