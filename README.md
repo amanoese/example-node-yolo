@@ -7,10 +7,10 @@ For High Power of Sakura Internet Cloud.
 
 ```bash
 ## if you have using curl 
-$ curl -s https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install | bash -
+$ bash <(curl -s https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install)
 
 ##if you have using wget 
-$ wget https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install -nv -O- | bash -
+$ bash <(wget https://raw.githubusercontent.com/amanoese/example-node-yolo/master/install -nv -O-)
 ```
 
 
