@@ -36,20 +36,15 @@ RUN apt-get update && apt-get install yarn -y
 ## install darknet and darknet.js
 RUN git clone https://github.com/bennetthardwick/darknet.js.git /var/darknet
 WORKDIR /var/darknet
-ENV DARKNET_BUILD_WITH_GPU=1
-ENV DARKNET_BUILD_WITH_CUDNN=1
+
+ARG OPENMP=1
+ARG GPU=0
+ARG CUDNN=0
+
+ENV DARKNET_BUILD_WITH_OPENMP=$OPENMP
+ENV DARKNET_BUILD_WITH_GPU=$GPU
+ENV DARKNET_BUILD_WITH_CUDNN=$CUDNN
 RUN . $HOME/.bash_profile && npm install && ./install-script.sh
-
-#WORKDIR /var/darknet
-#RUN . $HOME/.bash_profile && npm install && ./examples/example
-
-# install ffmpeg
-#WORKDIR /tmp
-
-#RUN apt-get -y install software-properties-common \
-#    && add-apt-repository ppa:mc3man/trusty-media \
-#    && apt-get update \
-#    && apt-get install -y --no-install-recommends ffmpeg
 
 WORKDIR /var/app
 
