@@ -2,10 +2,11 @@
 
 set -eux
 
-## install vim & tmux
+## install vim & tmux & feh
+## feh is x11 image viewer
 
 sudo apt-get update
-sudo apt-get -y install vim tmux
+sudo apt-get -y install vim tmux feh
 
 ## install docker from //docs.docker.com/install/linux/docker-ce/ubuntu/ 
 sudo apt-get install -y \
