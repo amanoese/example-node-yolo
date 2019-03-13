@@ -1,4 +1,4 @@
-#!/usr/local/env bash
+#!/usr/bin/env bash
 
 set -eux
 
@@ -52,6 +52,19 @@ sudo apt-get update
 
 # Install nvidia-docker2 and reload the Docker daemon configuration
 sudo apt-get -y install nvidia-docker2
+
+cat << EOF | sudo tee /etc/docker/daemon.json
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+EOF
+
 sudo pkill -SIGHUP dockerd
 
 # Test nvidia-smi with the latest official CUDA image
