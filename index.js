@@ -11,7 +11,7 @@ let darknet = new Darknet({
     namefile: __dirname + '/coco.names'
 });
 
-let filename = __dirname + '/img_01.jpg'
+let filename = __dirname + '/img.jpg'
 console.log(darknet.detect(filename));
 
 let data = fs.readFileSync(filename)

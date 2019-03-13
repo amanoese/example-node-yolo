@@ -33,6 +33,16 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 RUN apt-get update && apt-get install yarn -y
 
+## install darknet and darknet.js
+RUN git clone https://github.com/bennetthardwick/darknet.js.git /var/darknet
+WORKDIR /var/darknet
+ENV DARKNET_BUILD_WITH_GPU=1
+ENV DARKNET_BUILD_WITH_CUDNN=1
+RUN . $HOME/.bash_profile && npm install && ./install-script.sh
+
+#WORKDIR /var/darknet
+#RUN . $HOME/.bash_profile && npm install && ./examples/example
+
 # install ffmpeg
 #WORKDIR /tmp
 

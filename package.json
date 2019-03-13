@@ -2,12 +2,12 @@
   "name": "example-js-yolo",
   "version": "1.0.0",
   "main": "index.js",
-  "script": {
-    "build-container": "nvidia-docker build -t node-yolo ."
+  "scripts": {
+    "build:container": "nvidia-docker build -t node-yolo ."
   },
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.3.1",
-    "darknet": "file:darknet"
+    "darknet": "file:/var/darknet"
   }
 }
